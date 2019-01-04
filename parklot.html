@@ -1,0 +1,83 @@
+<html>
+<script src="jquery-3.2.1.min.js"></script>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="bootstrap.css">
+<title>
+	Parking Lot
+</title>
+<style>
+td img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+td{	
+	width: 100px;
+	height: 100px;
+}
+img{
+	height: 100px;
+}
+
+</style>
+</head>
+
+<body onload="myFunction()">
+</body>
+<script>
+	function myFunction() {
+  var x = document.createElement("TABLE");
+  x.setAttribute("id", "myTable");
+  document.body.appendChild(x);
+  for(var i=0;i<5;i++)
+  {
+  	var y = document.createElement("TR");
+  	y.setAttribute("id",i);
+  	document.getElementById("myTable").appendChild(y)
+  	for(var j=0;j<5;j++)
+  	{
+  		var z = document.createElement("TD");
+  		var imga = document.createElement("IMG");
+  		imga.setAttribute("src","grey_car.png")
+  		z.appendChild(imga);
+  		document.getElementById(i).appendChild(z);
+  	}
+  }
+}
+</script>
+<script>
+$(document).ready(function(){
+
+    $("IMG").hover(function(){
+    console.log("hey");
+    var imageURL = $(this).attr('src');
+    if(imageURL=="grey_car.png")
+        {
+        	 $(this).attr('src','green_car.png');
+        }
+    if(imageURL=="green_car.png")
+        {
+        	 $(this).attr('src','grey_car.png');
+        	console.log("hey");
+        }
+    });
+    $("IMG").click(function(){
+    
+    var imageURL = $(this).attr('src');
+    if(imageURL=="green_car.png")
+        {
+        	 $(this).attr('src','red_car.png');
+        }
+    if(imageURL=="red_car.png")
+        {
+        	 $(this).attr('src','green_car.png');
+        	console.log("hey");
+        }
+    });
+});
+
+</script>
+</html>
